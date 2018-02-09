@@ -16,6 +16,17 @@ var config = {
   messagingSenderId: "666228406900"
 };
 firebase.initializeApp(config);
+firebase.auth().onAuthStateChanged(function(user){
+  if(!app) {
+    app = new Vue({
+      el: '#app',
+      template: '<App/>',
+      comments: { App },
+      router
+    })
+  }
+
+})
 
 /* eslint-disable no-new */
 new Vue({
